@@ -1,0 +1,1 @@
+{"heartbeat":{"order":0,"template":"heartbeat-*","settings":{"index":{"number_of_shards":"1"}},"mappings":{},"aliases":{"alias2":{},"{index}-alias":{},"alias1":{}}}}

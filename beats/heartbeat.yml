@@ -1,0 +1,9 @@
+heartbeat.monitors:
+- type: icmp
+  schedule: '*/5 * * * * * *'
+  hosts: ["8.8.8.8"]
+  ipv6: false
+
+
+output.elasticsearch:
+  hosts: ["localhost:9200"]
