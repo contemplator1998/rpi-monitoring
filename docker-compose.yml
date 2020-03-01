@@ -7,12 +7,13 @@ services:
     ports:
       - "9200:9200"
       - "9300:9300"
+    volumes:
+      - './config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro'
+      - '/logs:/usr/share/elasticsearch/logs'
+
     environment:
-      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
-      ELASTIC_PASSWORD: changeme
-      # Use single node discovery in order to disable production mode and avoid bootstrap checks
-      # see https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
-      discovery.type: single-node
+      ES_JAVA_OPTS: "-Xmx512m -Xms512m"
+      ELASTIC_PASSWORD: ${ELASTIC_PASSWORD}
 
   logstash:
     image: ind3x/rpi-logstash
@@ -20,10 +21,14 @@ services:
       - "5000:5000"
       - "9600:9600"
     environment:
-      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+      LS_JAVA_OPTS: "-Xmx512m -Xms512m"
+    volumes:
+      - './config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro'
 
   kibana:
     image: ind3x/rpi-kibana
+    volumes:
+      - './config/kibana.yml:/opt/kibana/config/kibana.yml:ro'
     ports:
       - "5601:5601"
 
