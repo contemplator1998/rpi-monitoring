@@ -1,6 +1,6 @@
 ---
 cluster.name: contemplator logs
 node.name: rocketdata-logs-node-1
-path.data: /home/esuser/data
+path.data: /usr/share/elasticsearch/logs
 network.host: 0.0.0.0
 discovery.type: single-node
