@@ -1,6 +1,0 @@
-elasticsearch.url: http://elasticsearch:9200
-xpack.monitoring.ui.container.elasticsearch.enabled: true
-status.allowAnonymous: false
-i18n.locale: ru
-elasticsearch.username: elastic
-elasticsearch.password: ${ELASTIC_PASSWORD}
